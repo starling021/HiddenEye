@@ -33,7 +33,7 @@ pip3 install wget
 ```
 
 ```
-git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git
+git clone -b Termux-Support-Branch-An0nud4y https://github.com/DarkSecDevelopers/HiddenEye.git
 
 ```
 
@@ -117,7 +117,7 @@ apt install python3 && python3-pip && unzip && php && git
 ```
 
 ```
-git clone https://github.com/DarkSecDevelopers/HiddenEye.git
+git clone -b Termux-Support-Branch-An0nud4y https://github.com/DarkSecDevelopers/HiddenEye.git
 
 ```
 
