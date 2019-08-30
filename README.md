@@ -87,7 +87,7 @@
   - For Further instruction [Check Instructions](https://github.com/DarkSecDevelopers/HiddenEye/blob/master/instructions.md)
   - Termux Users Clone With This Command , Unless Errors may occur during Running.
 ```
-git clone -b Termux-Support-Branch https://github.com/DarkSecDevelopers/HiddenEye.git
+git clone -b Termux-Support-Branch-An0nud4y https://github.com/DarkSecDevelopers/HiddenEye.git
 
 ```
 **5) NEW LOOK PROVIDED**
