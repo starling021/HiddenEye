@@ -10,3 +10,4 @@ Server
 Settings\.ini
 
 ngrok\.url
+.vscode/settings.json

