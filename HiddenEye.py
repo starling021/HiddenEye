@@ -8,10 +8,10 @@ from os import system, environ
 import sys
 import ssl
 
-from Defs.Checks import *
-from Defs.Configurations import *
-from Defs.Actions import *
-from Defs.Languages import *
+from Defs.Checks import ConnectionManager, PermissionsManager
+from Defs.Configurations import ConfigurationManager
+from Defs.Actions import ActionsManager, EssentialsManager, ServerManager
+# from Defs.Languages import * #TODO LANGUAGE WILL BE IMPLEMENTED LATER
 
 
 RED, WHITE, CYAN, GREEN, DEFAULT = '\033[91m', '\033[46m', '\033[36m', '\033[1;32m',  '\033[0m'
@@ -19,8 +19,8 @@ PermissionsManager.checkPermissions()
 ConnectionManager.verifyNetHunterConnection()
 ConnectionManager.confirmConnection()
 ServerManager.installNgrok()
-ifSettingsNotExists()
-readConfig()
+ConfigurationManager.confirmSettingsExistence()
+ConfigurationManager.readConfig()
 
 
 if __name__ == "__main__":
