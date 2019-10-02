@@ -139,7 +139,11 @@ class ActionsManager:
             print(
                 "\n {0}[{1}*{0}]{0}Select Any Available Port [1-65535]:{1}".format(MAIN0, MAIN4))
             port = input(" \n{0}HiddenEye >>> {1}".format(MAIN0, MAIN2))
-            if (int(port) > 65535 or int(port) < 1):
+            if port != int:
+                port = 1
+                status = 1
+                return port
+            elif int(port) > 65535 or int(port) < 1:
                 # FIXME NEED TO BE COLORIZED
                 print("PLEASE SELECT PORT BETWEEN 1 AND 65535")
             else:
@@ -299,8 +303,7 @@ class ActionsManager:
             with open('Server/www/ip.txt') as credentials:
                 lines = credentials.read().rstrip()
                 if len(lines) != 0:
-                    ip = re.match('Victim Public IP: (.*.*.*)\n',
-                                  lines).group(1)
+                    ip = re.match('Victim Public IP: (.*.*.*)\n',lines).group(1)
                     user = re.match(
                         'Current logged in user: (a-z0-9)\n', lines)  # FIXME
                     resp = urlopen('https://ipinfo.io/{0}/json'.format(ip))
@@ -548,8 +551,7 @@ class EssentialsManager:
         system('clear')
         print('''
 
- {2} ██   ██ ██ ██████   ██████   ███████ ███   ██  {3}███████ ██    ██ ███████
- {1}
+ {2} ██   ██ ██ ██████   ██████   ███████ ███   ██  {3}███████ ██    ██ ███████{1}
  {2} ██   ██ ██ ██    ██ ██    ██ ██      ████  ██  {3}██       ██  ██  ██      {1}
  {2} ███████ ██ ██    ██ ██    ██ ███████ ██ ██ ██  {3}███████   ████   ███████ {1}
  {2} ██   ██ ██ ██    ██ ██    ██ ██      ██  ████  {3}██         ██    ██      {1}
