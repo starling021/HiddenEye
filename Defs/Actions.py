@@ -8,11 +8,11 @@ import json
 from urllib.request import urlopen
 from subprocess import check_output, CalledProcessError
 from sys import stdout, argv, exit
-from Defs.ThemesManager import ThemeManager
-from Defs.Configurations import readConfig, ifSettingsNotExists
+from Defs.Themes import ThemesManager #FIXME
+from Defs.Configurations import ConfigurationManager
 
-ifSettingsNotExists()
-config = readConfig()
+ConfigurationManager.confirmSettingsExistence()
+config = ConfigurationManager.readConfig()
 
 logFile = None
 didBackground = config.get("Settings", "DidBackground")
@@ -22,7 +22,7 @@ for arg in argv:
 if config.get("Settings", "DidBackground") == "True":
     logFile = open("log.txt", "w")
 
-colorTheme = ThemeManager().colorSelector()
+colorTheme = ThemesManager.selectTheme() #FIXME
 MAIN0, MAIN1, MAIN2, MAIN3, MAIN4 = colorTheme[0], colorTheme[
     1], colorTheme[2], colorTheme[3],  colorTheme[4]
 
