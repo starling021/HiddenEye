@@ -1,6 +1,6 @@
 # Python3
 # Language code by sTiKyt
-# TODO PLEASE IGNORE THIS FILE, THIS SYSTEM NOT IMPLEMENTED YET
+# ATTENTION PLEASE IGNORE THIS FILE, THIS SYSTEM NOT IMPLEMENTED YET (TODO)
 import sys
 import gettext
 from Defs.Configurations import readConfig
