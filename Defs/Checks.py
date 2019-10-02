@@ -8,9 +8,9 @@ from wget import download
 import os
 import ctypes
 import ssl
-from Defs.ThemesManager import ThemeManager
+from Defs.Themes import ThemesManager
 
-colorTheme = ThemeManager().colorSelector()
+colorTheme = ThemesManager.selectTheme()
 MAIN0, MAIN1, MAIN2, MAIN3, MAIN4 = colorTheme[0], colorTheme[
     1], colorTheme[2], colorTheme[3],  colorTheme[4]
 
