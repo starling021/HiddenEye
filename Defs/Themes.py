@@ -1,14 +1,16 @@
-# Themes Manager
+# Themes Manager TODO
+# NEW THEMES SYSTEM WILL BE IMPLEMENTED SOON
+# PLEASE DON'T WORRY ABOUT FIXING THIS GARBAGE
 import sys
-from Defs.Configurations import readConfig, ifSettingsNotExists  # FIXME
+from Defs.Configurations import ConfigurationManager
 
 color = [0, 0, 0, 0, 0]
-config = readConfig()
+config = ConfigurationManager.readConfig()
 
 
-class ThemeManager:
-    def colorSelector(self):
-        ifSettingsNotExists()
+class ThemesManager:
+    def selectTheme():
+        ConfigurationManager.confirmSettingsExistence()
         for arg in sys.argv:
             if arg in ['--theme']:
                 for arg in sys.argv:
