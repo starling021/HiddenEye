@@ -1,6 +1,8 @@
 # Any actions must be here
 
 from os import system, path
+from wget import download
+from platform import system as systemos, architecture
 from distutils.dir_util import copy_tree
 from time import sleep
 import re
