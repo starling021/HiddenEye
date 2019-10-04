@@ -150,7 +150,10 @@ class ActionsManager:
                 return port
             else:
                 print("PLEASE SELECT PORT BETWEEN 1 AND 65535")
-                port = int(input(" \n{0}HiddenEye >>> {1}".format(MAIN0, MAIN2)))
+                try:
+                    port = int(input(" \n{0}HiddenEye >>> {1}".format(MAIN0, MAIN2)))
+                except:
+                    print("PORT SHOULD BE A NUMBER")
 
 
 
@@ -547,7 +550,7 @@ class EssentialsManager:
     {3}  [[*]] THANKS TO USE THIS TOOL. HAPPY HACKING ... GOOD BYE \n '''.format(MAIN2, MAIN2, MAIN4, MAIN0))
         else:
             system('clear')
-            return endMessage()
+            return EssentialsManager.endMessage()
 
     def mainMenu():
         system('clear')
