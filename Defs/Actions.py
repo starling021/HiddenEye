@@ -148,12 +148,11 @@ class ActionsManager:
         while True:
             if int(port) >= 1 and int(port) <= 65535:
                 return port
-            else:
-                print("PLEASE SELECT PORT BETWEEN 1 AND 65535")
-                try:
-                    port = int(input(" \n{0}HiddenEye >>> {1}".format(MAIN0, MAIN2)))
-                except ValueError:
-                    print("PORT SHOULD BE A NUMBER")
+            print("PLEASE SELECT PORT BETWEEN 1 AND 65535")
+            try:
+                port = int(input(" \n{0}HiddenEye >>> {1}".format(MAIN0, MAIN2)))
+            except ValueError:
+                print("PORT SHOULD BE A NUMBER")
 
 
 
