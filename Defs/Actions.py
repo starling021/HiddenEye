@@ -130,27 +130,27 @@ class ActionsManager:
 
     def selectPort(port = '65535'):  # Question where user must select port
         status = 0
-        while status < 1:
-            system('clear')
-            print('''
-            {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
-            |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
-            |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
-            {0}http://github.com/darksecdevelopers
-            {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ WEBSERVER PORT SELECTION ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
-            print(
-                "\n {0}[{1}*{0}]{0}Select Any Available Port [1-65535]:{1}".format(MAIN0, MAIN4))
-            port = input(" \n{0}HiddenEye >>> {1}".format(MAIN0, MAIN2))
-            if port != int:
-                port = 1
-                status = 1
+        system('clear')
+        print('''
+        {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
+        |__| | ]  | ]  | |__ |\ |  {0}|__ \__/ |__{1}
+        |  | | ]__| ]__| |__ | \|  {0}|__  ||  |__{1}
+        {0}http://github.com/darksecdevelopers
+        {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ WEBSERVER PORT SELECTION ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
+        print(
+            "\n {0}[{1}*{0}]{0}Select Any Available Port [1-65535]:{1}".format(MAIN0, MAIN4))
+        while True:
+            try:
+                port = int(input(" \n{0}HiddenEye >>> {1}".format(MAIN0, MAIN2)))
+                break
+            except:
+                print("PORT SHOULD BE A NUMBER")
+        while True:
+            if int(port) >= 1 and int(port) <= 65535:
                 return port
-            elif int(port) > 65535 or int(port) < 1:
-                # FIXME NEED TO BE COLORIZED
-                print("PLEASE SELECT PORT BETWEEN 1 AND 65535")
             else:
-                status = 1
-                return port
+                print("PLEASE SELECT PORT BETWEEN 1 AND 65535")
+                port = int(input(" \n{0}HiddenEye >>> {1}".format(MAIN0, MAIN2)))
 
 
 
