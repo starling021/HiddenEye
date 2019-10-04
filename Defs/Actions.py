@@ -408,7 +408,7 @@ class ServerManager:
                 system('clear')
 
     def installNgrok():  # Ngrok check
-        if path.isfile('Server/ngrok') == False:  # Is Ngrok downloaded?
+        if path.isfile('Server/ngrok') is False:  # Is Ngrok downloaded?
             print('[*] Ngrok Not Found')
 
             if input("\n{2}[{1}!{2}]{1} Do you accept installation of Ngrok? ({0}y{1}/{2}n{1})\n{2}HiddenEye >>> {0}".format(MAIN2, MAIN4, MAIN0)).upper() != 'Y':
