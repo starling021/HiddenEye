@@ -33,7 +33,7 @@ class ThemesManager:
             color = ['\033[91m', '\033[46m',
                      '\033[36m', '\033[32m',  '\033[0m']
             return color
-        elif config.get("Defaults", "theme") == "ocean":
+        if config.get("Defaults", "theme") == "ocean":
             # Cyan, BackgroundCyan, BrightBlue, DarkGray, ResetAll
             color = ['\033[36m', '\033[46m', '\033[34m', '\033[30m', '\033[0m']
             return color
